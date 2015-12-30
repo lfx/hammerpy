@@ -1,0 +1,5 @@
+tough;kietas
+languish;merdėti
+height;aukštis
+width;plotis
+length;ilgis
