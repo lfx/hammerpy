@@ -13,7 +13,7 @@ if __name__ == "__main__":
         total+=1
         en = line.split(";")[0]
         lt = line.split(";")[1]
-        print(lt)
+        print("{0} {1}".format(total, lt))
         r = input("en: ")
         if(en == r):
             good+=1
