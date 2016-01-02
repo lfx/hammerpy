@@ -1,9 +1,24 @@
 #!/usr/bin/env python3
 import random
-import sys
+import argparse
 
-lines = open(sys.argv[1]).readlines()
+parser = argparse.ArgumentParser()
+parser.add_argument('input_filename')
+parser.add_argument('--out', '-o', help='records mistaken words to other file')
+args = parser.parse_args()
+
+lines = open(args.input_filename).readlines()
 random.shuffle(lines)
+
+record_mistakes = False
+if args.out:
+    record_mistakes = True
+    mistakes_list = []
+
+def record(word):
+    if record_mistakes:
+        with open(args.out, "a") as tmp:
+            tmp.write(word)
 
 if __name__ == "__main__":
     total = 0
@@ -20,6 +35,7 @@ if __name__ == "__main__":
             print("Correct!")
         else:
             bad+=1
+            record(line)
             print("Wrong! Should be - ", en)
             lines.append(line)
             while True:
