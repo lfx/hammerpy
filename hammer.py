@@ -21,6 +21,7 @@ if __name__ == "__main__":
         else:
             bad+=1
             print("Wrong! Should be - ", en)
+            lines.append(line)
             while True:
                 rr = input("again: ")
                 if(en == rr):
